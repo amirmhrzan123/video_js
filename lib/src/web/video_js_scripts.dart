@@ -1,6 +1,6 @@
 class VideoJsScripts {
   String videojsCode(String playerId, Map<String, dynamic>? options) => """
-    var player = videojs('$playerId', autplay:true,${options},function() {
+    var player = videojs('$playerId',${options},function() {
     callBackToDartSide('$playerId', 'onReady' , 'true');
     });""";
 

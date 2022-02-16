@@ -51,6 +51,8 @@ class VideoJsOptions {
   /// When this option is false (the default), responsive breakpoints will be ignored.
   final bool? responsive;
 
+  final autoplay? autoplay;
+
   /// An array of objects that mirror the native <video> element's capability to have a series of child
   /// <source> elements. This should be an array of objects with the src and type properties.
   final List<Source>? sources;
@@ -73,6 +75,7 @@ class VideoJsOptions {
       this.playbackRates,
       this.preferFullWindow,
       this.responsive,
+      this.autoplay,
       this.sources,
       this.suppressNotSupportedError});
 
@@ -94,6 +97,8 @@ class VideoJsOptions {
     if (this.responsive != null) data['responsive'] = this.responsive;
     if (this.suppressNotSupportedError != null)
       data['suppressNotSupportedError'] = this.suppressNotSupportedError;
+    if (this.autoplay != null) data['autoplay'] = this.autoplay;
+
     if (this.sources != null)
       data['sources'] = this.sources!.map((v) => v.toJson()).toList();
     return data;
